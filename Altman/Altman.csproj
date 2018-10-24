@@ -1,0 +1,513 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{675E25CD-A712-4BFE-B18B-38423EE4FB9E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Altman</RootNamespace>
+    <AssemblyName>Altman</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Hatchet.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.108.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.108.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.108.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Altman.Unit\Common\AltData\DataCombine.cs">
+      <Link>Altman.Unit\Common\AltData\DataCombine.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltData\DataConvert.cs">
+      <Link>Altman.Unit\Common\AltData\DataConvert.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltData\ResultMatch.cs">
+      <Link>Altman.Unit\Common\AltData\ResultMatch.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltData\ResultStruct.cs">
+      <Link>Altman.Unit\Common\AltData\ResultStruct.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltEventArgs\Alt_CompletedEventArgs.cs">
+      <Link>Altman.Unit\Common\AltEventArgs\Alt_CompletedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltEventArgs\Alt_DownloadProgressChangedEventArgs.cs">
+      <Link>Altman.Unit\Common\AltEventArgs\Alt_DownloadProgressChangedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltEventArgs\Alt_ProgressChangedEventArgs.cs">
+      <Link>Altman.Unit\Common\AltEventArgs\Alt_ProgressChangedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltEventArgs\Alt_ProxyReceiveEventArgs.cs">
+      <Link>Altman.Unit\Common\AltEventArgs\Alt_ProxyReceiveEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltEventArgs\Alt_UploadProgressChangedEventArgs.cs">
+      <Link>Altman.Unit\Common\AltEventArgs\Alt_UploadProgressChangedEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltException\CustomException.cs">
+      <Link>Altman.Unit\Common\AltException\CustomException.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltException\LocalCustomException.cs">
+      <Link>Altman.Unit\Common\AltException\LocalCustomException.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltException\RequestCustomException.cs">
+      <Link>Altman.Unit\Common\AltException\RequestCustomException.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Common\AltException\ResponseCustomException.cs">
+      <Link>Altman.Unit\Common\AltException\ResponseCustomException.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Data\AccessHelper.cs">
+      <Link>Altman.Unit\Data\AccessHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Data\Db.cs">
+      <Link>Altman.Unit\Data\Db.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Data\SqliteHelper.cs">
+      <Link>Altman.Unit\Data\SqliteHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Logic\InitWorker.cs">
+      <Link>Altman.Unit\Logic\InitWorker.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Logic\SettingXmlHandle.cs">
+      <Link>Altman.Unit\Logic\SettingXmlHandle.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Logic\XmlHelper.cs">
+      <Link>Altman.Unit\Logic\XmlHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Setting\GlobalSetting.cs">
+      <Link>Altman.Unit\Setting\GlobalSetting.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Setting\Setting.cs">
+      <Link>Altman.Unit\Setting\Setting.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Share\Ini.cs">
+      <Link>Altman.Unit\Share\Ini.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Share\IniElement.cs">
+      <Link>Altman.Unit\Share\IniElement.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Share\IniSettings.cs">
+      <Link>Altman.Unit\Share\IniSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Web\Http.cs">
+      <Link>Altman.Unit\Web\Http.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Web\HttpClient.cs">
+      <Link>Altman.Unit\Web\HttpClient.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Unit\Web\ProxyServer.cs">
+      <Link>Altman.Unit\Web\ProxyServer.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\CustomCommandCode.cs">
+      <Link>Altman.Webshell\Core\CustomCommandCode.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\CustomShellType.cs">
+      <Link>Altman.Webshell\Core\CustomShellType.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\CustomShellTypeProvider.cs">
+      <Link>Altman.Webshell\Core\CustomShellTypeProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\CustomShellTypeXmlHandle.cs">
+      <Link>Altman.Webshell\Core\CustomShellTypeXmlHandle.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\EncryMode.cs">
+      <Link>Altman.Webshell\Core\EncryMode.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\FuncTreeNode.cs">
+      <Link>Altman.Webshell\Core\FuncTreeNode.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\ShellExtra.cs">
+      <Link>Altman.Webshell\Core\ShellExtra.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\ShellExtraHandle.cs">
+      <Link>Altman.Webshell\Core\ShellExtraHandle.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Core\XmlHelper.cs">
+      <Link>Altman.Webshell\Core\XmlHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\InitWorker.cs">
+      <Link>Altman.Webshell\InitWorker.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Model\Shell.cs">
+      <Link>Altman.Webshell\Model\Shell.cs</Link>
+    </Compile>
+    <Compile Include="..\Altman.Webshell\Service.cs">
+      <Link>Altman.Webshell\Service.cs</Link>
+    </Compile>
+    <Compile Include="AppEnvironment.cs" />
+    <Compile Include="Controls\ConsoleBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\BlendStyle.cs" />
+    <Compile Include="Controls\TabControl\CustomTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\NativeMethods.cs" />
+    <Compile Include="Controls\TabControl\RectangleUtils.cs" />
+    <Compile Include="Controls\TabControl\TabState.cs" />
+    <Compile Include="Controls\TabControl\TabStyle.cs" />
+    <Compile Include="Controls\TabControl\TabStyleProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleAngledProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleChromeProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleDefaultProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleIE8Provider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleNoneProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleRectangularProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleRoundedProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleVisualStudioProvider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\TabStyleProviders\TabStyleVS2010Provider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl\ThemedColors.cs" />
+    <Compile Include="DataDef.cs" />
+    <Compile Include="DbManager\DbManager.cs" />
+    <Compile Include="DoubleBuffer.cs" />
+    <Compile Include="FileManager\FileInfoView.cs" />
+    <Compile Include="FileManager\FileManager.cs" />
+    <Compile Include="FileManager\FileUploadOrDownload.cs" />
+    <Compile Include="FileManager\BindingCollection.cs" />
+    <Compile Include="Forms\FormEditWebshell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormEditWebshell.Designer.cs">
+      <DependentUpon>FormEditWebshell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormWget.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormWget.Designer.cs">
+      <DependentUpon>FormWget.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PageDbManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PageDbManager.Designer.cs">
+      <DependentUpon>PageDbManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PageShellCmder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PageShellCmder.Designer.cs">
+      <DependentUpon>PageShellCmder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PanelSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PanelSetting.Designer.cs">
+      <DependentUpon>PanelSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PageShellManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PageShellManager.Designer.cs">
+      <DependentUpon>PageShellManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InitUI.cs" />
+    <Compile Include="Forms\PageFileManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PageFileManager.Designer.cs">
+      <DependentUpon>PageFileManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PageFileEditer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PageFileEditer.Designer.cs">
+      <DependentUpon>PageFileEditer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AltStrRes.cs" />
+    <Compile Include="Resources\Icons.cs" />
+    <Compile Include="ShellCmder\InternalCommand.cs" />
+    <Compile Include="ShellCmder\ShellCmder.cs" />
+    <Compile Include="ShellManager\DataConvert.cs" />
+    <Compile Include="ShellManager\ShellExtraStringHandle.cs" />
+    <Compile Include="ShellManager\ShellManager.cs" />
+    <EmbeddedResource Include="Forms\FormEditWebshell.resx">
+      <DependentUpon>FormEditWebshell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormWget.resx">
+      <DependentUpon>FormWget.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PageDbManager.resx">
+      <DependentUpon>PageDbManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PageFileEditer.resx">
+      <DependentUpon>PageFileEditer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PageFileManager.resx">
+      <DependentUpon>PageFileManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PageShellCmder.resx">
+      <DependentUpon>PageShellCmder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PanelSetting.resx">
+      <DependentUpon>PanelSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PageShellManager.resx">
+      <DependentUpon>PageShellManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="CustomType\aspEval.type" />
+    <None Include="CustomType\aspEval_BuiltIn.func" />
+    <None Include="CustomType\aspEval_Cookie.type" />
+    <None Include="CustomType\aspEval_Db.func" />
+    <None Include="CustomType\aspxEval.type" />
+    <None Include="CustomType\aspxEval_BuiltIn.func" />
+    <None Include="CustomType\aspxEval_Cookie.type" />
+    <None Include="CustomType\aspxEval_Db.func" />
+    <None Include="CustomType\jspBig.type" />
+    <None Include="CustomType\jspBig_BuiltIn.func" />
+    <None Include="CustomType\phpAssert.type" />
+    <None Include="CustomType\phpAssert_Base64.type" />
+    <None Include="CustomType\phpEval.type" />
+    <None Include="CustomType\phpEval_Base64.type" />
+    <None Include="CustomType\phpEval_BuiltIn.func" />
+    <None Include="CustomType\phpEval_Cookie.type" />
+    <None Include="CustomType\phpEval_Db.func" />
+    <None Include="CustomType\pythonEval.type" />
+    <None Include="CustomType\pythonEval_BuiltIn.func" />
+    <None Include="CustomType\_func.tree" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Hatchet.ico" />
+    <Content Include="Resources\Hatchet.ico" />
+    <Content Include="setting.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\DatabaseIcons\0.database_start.ico" />
+    <None Include="Resources\DatabaseIcons\1.database_failed.ico" />
+    <None Include="Resources\DatabaseIcons\2.database.ico" />
+    <None Include="Resources\DatabaseIcons\3.table.ico" />
+    <None Include="Resources\DatabaseIcons\4.table_failed.ico" />
+    <None Include="Resources\DatabaseIcons\5.column.ico" />
+    <Content Include="Resources\altman.ico" />
+    <Content Include="Resources\altman.png" />
+    <Content Include="Resources\FileIcons\0_unknow_32.ico" />
+    <Content Include="Resources\FileIcons\100_chm_32.ico" />
+    <Content Include="Resources\FileIcons\101_iso_32.ico" />
+    <Content Include="Resources\FileIcons\10_exe_32.ico" />
+    <Content Include="Resources\FileIcons\11_dll_32.ico" />
+    <Content Include="Resources\FileIcons\12_bat_32.ico" />
+    <Content Include="Resources\FileIcons\13_bin_32.ico" />
+    <Content Include="Resources\FileIcons\1_folder_32.ico" />
+    <Content Include="Resources\FileIcons\20_zip_32.ico" />
+    <Content Include="Resources\FileIcons\21_rar_32.ico" />
+    <Content Include="Resources\FileIcons\22_gz_32.ico" />
+    <Content Include="Resources\FileIcons\23_tgz_32.ico" />
+    <Content Include="Resources\FileIcons\24_cab_32.ico" />
+    <Content Include="Resources\FileIcons\30_bmp_32.ico" />
+    <Content Include="Resources\FileIcons\31_gif_32.ico" />
+    <Content Include="Resources\FileIcons\32_jpeg_32.ico" />
+    <Content Include="Resources\FileIcons\33_jpg_32.ico" />
+    <Content Include="Resources\FileIcons\34_png_32.ico" />
+    <Content Include="Resources\FileIcons\40_rm_32.ico" />
+    <Content Include="Resources\FileIcons\41_rmvb_32.ico" />
+    <Content Include="Resources\FileIcons\42_mov_32.ico" />
+    <Content Include="Resources\FileIcons\43_mp4_32.ico" />
+    <Content Include="Resources\FileIcons\44_mpeg_32.ico" />
+    <Content Include="Resources\FileIcons\45_mpg_32.ico" />
+    <Content Include="Resources\FileIcons\46_flv_32.ico" />
+    <Content Include="Resources\FileIcons\47_swf_32.ico" />
+    <Content Include="Resources\FileIcons\50_dat_32.ico" />
+    <Content Include="Resources\FileIcons\51_doc_32.ico" />
+    <Content Include="Resources\FileIcons\52_docx_32.ico" />
+    <Content Include="Resources\FileIcons\53_eml_32.ico" />
+    <Content Include="Resources\FileIcons\54_ini_32.ico" />
+    <Content Include="Resources\FileIcons\55_log_32.ico" />
+    <Content Include="Resources\FileIcons\56_mdb_32.ico" />
+    <Content Include="Resources\FileIcons\57pdf_32.ico" />
+    <Content Include="Resources\FileIcons\58_ppt_32.ico" />
+    <Content Include="Resources\FileIcons\59_pptx_32.ico" />
+    <Content Include="Resources\FileIcons\60_psd_32.ico" />
+    <Content Include="Resources\FileIcons\61_rtf_32.ico" />
+    <Content Include="Resources\FileIcons\62_txt_32.ico" />
+    <Content Include="Resources\FileIcons\63_wps_32.ico" />
+    <Content Include="Resources\FileIcons\64_xls_32.ico" />
+    <Content Include="Resources\FileIcons\65_xlsx_32.ico" />
+    <Content Include="Resources\FileIcons\80_asa_32.ico" />
+    <Content Include="Resources\FileIcons\81_asp_32.ico" />
+    <Content Include="Resources\FileIcons\82_aspx_32.ico" />
+    <Content Include="Resources\FileIcons\83_c_32.ico" />
+    <Content Include="Resources\FileIcons\84_cpp_32.ico" />
+    <Content Include="Resources\FileIcons\85_cs.ico" />
+    <Content Include="Resources\FileIcons\86_h_32.ico" />
+    <Content Include="Resources\FileIcons\87_htm_32.ico" />
+    <Content Include="Resources\FileIcons\88_html_32.ico" />
+    <Content Include="Resources\FileIcons\89_jar_32.ico" />
+    <Content Include="Resources\FileIcons\90_php_32.ico" />
+    <Content Include="Resources\FileIcons\91_ruby_32.ico" />
+    <Content Include="Resources\FileIcons\92_sln_32.ico" />
+    <Content Include="Resources\FileIcons\drive.ico" />
+    <Content Include="Resources\FileIcons\floder.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ADODB">
+      <Guid>{2A75196C-D9EB-4129-B803-931327F72D5C}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="ADOX">
+      <Guid>{00000600-0000-0010-8000-00AA006D2EA4}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.108.0\build\net46\System.Data.SQLite.Core.targets'))" />
+  </Target>
+</Project>
