@@ -32,6 +32,8 @@ namespace Altman.Forms
 
         private TreeNode _fullNode;
         private BindingCollection<FileInfoView> _dataStore;
+        private int lastTime;
+        private string lastKey;
 
         private List<string> _commonPath = new List<string>
         {
@@ -935,6 +937,68 @@ namespace Altman.Forms
                 this._rightMenuBlank.Show(MousePosition.X, MousePosition.Y);
             }
         }
+
+        private void _gridViewFile_KeyDown(object sender, KeyEventArgs e)
+        {
+            //var key = e.KeyCode.ToString();
+            //var data = _dataStore.Where(o => o.Name.StartsWith(key)).FirstOrDefault();
+            int interval = Environment.TickCount - lastTime;
+            if (interval < 1100)
+            {
+                lastKey += e.KeyCode.ToString();
+            }
+            else
+            {
+                lastKey = e.KeyCode.ToString();
+            }
+            lastTime = Environment.TickCount;
+            foreach (DataGridViewRow item in _gridViewFile.Rows)
+            {
+                var name = item.Cells[1].Value.ToString();
+                if (name.ToLower().StartsWith(lastKey.ToLower()))
+                {
+                    _gridViewFile.ClearSelection();
+                    item.Selected = true;
+                    _gridViewFile.CurrentCell = item.Cells[0];
+                    break;
+                }
+            }
+        }
+
+        private void _gridViewFile_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Link;
+            else e.Effect = DragDropEffects.None;
+            var files = ((System.Array)e.Data.GetData(DataFormats.FileDrop));
+            if (files.Length < 1)
+                return;
+
+            foreach (var item in files)
+            {
+                try
+                {
+                    var targetFilePath = Path.Combine(_currentDirPath, Path.GetFileName(item.ToString()));
+                    var upload = new FileUploadOrDownload(_shellData, item.ToString(), targetFilePath);
+                    upload.UploadFileProgressChangedToDo += upload_UploadFileProgressChangedToDo;
+                    upload.UploadFileCompletedToDo += upload_UploadFileCompletedToDo;
+                    upload.StartToUploadFile();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+            }
+
+        }
+
+        private void _gridViewFile_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
         #endregion
+
+
     }
 }

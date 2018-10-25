@@ -25,7 +25,7 @@ namespace Altman.Forms
 
             Init();
             //数据库初始化
-            
+
             _mainForm = formMain;
             ShellManager.Init();
             // 注册事件
@@ -232,30 +232,52 @@ namespace Altman.Forms
 
         private void _fileManageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var shell = _gridViewShell.SelectedRows[0].DataBoundItem as Shell;
-            shell.TimeOut = 8000;
-            var filemanage = new PageFileManager(_mainForm, shell);
+            try
+            {
+                var shell = _gridViewShell.SelectedRows[0].DataBoundItem as Shell;
+                shell.TimeOut = 8000;
+                var filemanage = new PageFileManager(_mainForm, shell);
 
-            _mainForm.CreateTabPage($"FileManage|{shell.TargetId}", filemanage);
+                _mainForm.CreateTabPage($"FileManage|{shell.TargetId}", filemanage);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void _shellCmderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var shell = _gridViewShell.SelectedRows[0].DataBoundItem as Shell;
-            shell.TimeOut = 8000;
-            var shellcmder = new PageShellCmder(_mainForm, shell);
+            try
+            {
+                var shell = _gridViewShell.SelectedRows[0].DataBoundItem as Shell;
+                shell.TimeOut = 8000;
+                var shellcmder = new PageShellCmder(_mainForm, shell);
 
-            _mainForm.CreateTabPage($"ShellCmder|{shell.TargetId}", shellcmder);
+                _mainForm.CreateTabPage($"ShellCmder|{shell.TargetId}", shellcmder);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void _dBManageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var shell = _gridViewShell.SelectedRows[0].DataBoundItem as Shell;
-            shell.TimeOut = 8000;
-            var dbmanager = new PageDbManager(_mainForm, shell);
+            try
+            {
+                var shell = _gridViewShell.SelectedRows[0].DataBoundItem as Shell;
+                shell.TimeOut = 8000;
+                var dbmanager = new PageDbManager(_mainForm, shell);
 
-            _mainForm.CreateTabPage($"PageDbManager|{shell.TargetId}", dbmanager);
+                _mainForm.CreateTabPage($"PageDbManager|{shell.TargetId}", dbmanager);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         private void _optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -352,13 +374,20 @@ namespace Altman.Forms
 
         private void _gridViewShell_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (_gridViewShell.SelectedRows.Count > 0 && e.RowIndex >= 0)
+            try
             {
-                var shell = _gridViewShell.SelectedRows[0].DataBoundItem as Shell;
-                shell.TimeOut = 8000;
-                var filemanage = new PageFileManager(_mainForm, shell);
+                if (_gridViewShell.SelectedRows.Count > 0 && e.RowIndex >= 0)
+                {
+                    var shell = _gridViewShell.SelectedRows[0].DataBoundItem as Shell;
+                    shell.TimeOut = 8000;
+                    var filemanage = new PageFileManager(_mainForm, shell);
 
-                _mainForm.CreateTabPage($"FileManage|{shell.TargetId}", filemanage);
+                    _mainForm.CreateTabPage($"FileManage|{shell.TargetId}", filemanage);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
